@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="contact-global.css" />
+    <link rel="stylesheet" href="contact.css" />
+    <link rel="stylesheet" href="java-script.js">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IcoFont:wght@400&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lalezar:wght@400&display=swap" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;600;700;800&display=swap" />
+</head>
+
+<body>
+    <div class="contact-us6">
+        <img class="main-frame-icon1" loading="eager" alt="" src="Background frame.png" />
+
+        <div class="contact-frame1">
+            <div class="inner-frame6">
+                <div class="rectangle-frame-parent">
+                    <div class="rectangle-frame3"></div>
+                    <img class="object-icon32" loading="eager" alt="" src="Logo.png" />
+
+                    <h3 class="medicust29">Dr. Med-Ease</h3>
+                </div>
+                <div class="text-frame-b">
+                    <div class="professional-and-friendly-care">
+                        <h1 class="a-professional-and14">Dr.Med-Ease</h1>
+                    </div>
+                    <div class="professional-and-friendly-care1">
+                        <h3 class="medical-and-health8">Medical And Health</h3>
+                    </div>
+                    <div class="text-frame-c">
+                        <h1 class="a-professional-and15">
+                            A professionaland friendly careprovider.
+                        </h1>
+                        <div class="excepteur-sint-occaecat18">
+                            Get your personalized doctor appointment done through our
+                            website !
+                        </div>
+                        <button class="text-frame-e">
+                            <div class="all-doctors9">Home</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main8">
+            <div class="frame-g">
+                <div class="email-frame1">
+                    <img class="object-icon33" alt="" src="bluelogo.png" />
+
+                    <div class="label-frame">
+                        <h2 class="medicust30">Dr. Med-Ease</h2>
+                    </div>
+                </div>
+            </div>
+            <form action="" name="submit-to-google-sheet" class="form">
+                <div class="form-label-email">
+                    <div class="form-triple-label">
+                        <div class="form-label39">Enter Your Name*</div>
+                        <div class="form-input39">
+                            <input class="enter-your-name8" placeholder="Enter your name" type="text" name="Name"
+                                required />
+                        </div>
+                    </div>
+                    <div class="form-triple-label1">
+                        <div class="form-label40">Enter your Email*</div>
+                        <div class="form-input40">
+                            <input class="enter-password4" placeholder="Enter Email" type="email" id="email"
+                                name="email" required />
+                        </div>
+                    </div>
+                    <div class="form-triple-label1">
+                        <div class="form-label40">Enter your Phone Number*</div>
+                        <div class="form-input40">
+                            <input class="enter-password4" placeholder="Enter Phone number" name="Email" required
+                                type="tel" id="phone" />
+                        </div>
+                    </div>
+                    <div class="form-triple-label2">
+                        <div class="form-label41">Enter your message*</div>
+                        <textarea class="form-input41" placeholder="Write your query/ Consult" required>
+            </textarea>
+                    </div>
+                    <button class="form-link12" type="submit">
+                        <b class="login2">Submit</b>
+                    </button>
+                </div>
+            </form>
+            <span id="span">.....</span>
+        </div>
+    </div>
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbyE10ryeoqbsGiDkacxt16mZix2Ih5Z79cPQj7EtdDQlss17HcVEoXdXjlE-NDiZ6b-zQ/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const span = document.getElementById('span');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    span.innerHTML = 'Message Sent successfully';
+                    setTimeout(function () {
+                        span.innerHTML = '';
+                    }, 3000);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+</body>
+
+</html>
